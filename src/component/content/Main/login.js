@@ -4,7 +4,7 @@ import { login } from '../../../common';
 import { loginJoin } from "../../../store/action/action";
 import { Button } from 'react-bootstrap';
 
-const Login = ({history, indexUser}) => {
+const Login = ({ history }) => {
 
     const [ user, setUser ] = useState({
         'id' : '',

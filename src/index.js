@@ -27,6 +27,7 @@ import 'react-bootstrap-icons';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import rootReducer from '../src/store/index';
+import NotLogin from './component/state/NotLogin';
 
 const store = createStore(rootReducer);
 

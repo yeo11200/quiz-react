@@ -1,19 +1,14 @@
-const { loginJoin } = require("./store/action/action");
-const axios = require('axios');
+import axios from 'axios';
 
-exports.memId = sessionStorage.getItem('MEMBER_ID');
+export const memId = sessionStorage.getItem('MEMBER_ID');
 
-const URL = (window.location.hostname == 'localhost') ? 'http://localhost:5000' : '//api.jinseop-api.click';
+const URL = (window.location.hostname == 'localhost') ? 'https://api.jinseop-api.click' : '//api.jinseop-api.click';
 
 const user = `${URL}/member/`;
-exports.quiz = `${URL}/quiz/`;
-exports.member = user;
-// exports.quizListAPI = `${URL}/quiz/`;
-// exports.quizListAPI = `${URL}/quiz/`;
-// exports.quizListAPI = `${URL}/quiz/`;
-// exports.quizListAPI = `${URL}/quiz/`;
+export const quiz = `${URL}/quiz/`;
+export const member = user;
 
-exports.login = (data, callback) => {
+export const login = (data, callback) => {
 
     axios.post(`${user}login`, data).then(res => {
         const items = res.data;
@@ -42,6 +37,6 @@ exports.login = (data, callback) => {
     })
 }
 
-exports.isEmpty = (params) => {
+export const isEmpty = (params) => {
     return Object.keys(params).length > 0 ? true : false 
 }

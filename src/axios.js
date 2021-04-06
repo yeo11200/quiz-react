@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const URL = (window.location.hostname == 'localhost') ? 'http://localhost:5000' : '//api.jinseop-api.click';
+const URL = (window.location.hostname == 'localhost') ? 'https://api.jinseop-api.click' : '//api.jinseop-api.click';
 
 const DefaultApi = axios.create({
     baseURL:URL,

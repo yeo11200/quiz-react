@@ -92,3 +92,49 @@ const App: React.FC<GreetingsProps> = () => {} // react type React.FC
 			<meta property="og:site_name" content="" />
 			<meta property="og:description" content={description} />
 ```
+
+### eslint, prettier 사용하는 이유
+- eslint
+   - 잘못된 문법이나, 팀 스타일에 대한 문법을 확인
+   - 가이드 라인을 제시
+      - 유지보수가 쉬움
+      - 가독성이 편함
+      - 버그를 최소화 할 수 있다.
+
+- prettier
+   - 팀원들과 코드에 대한 품질을 맞추기 위해서 사용
+
+```npm
+
+npm install -g eslint
+
+eslint --init
+
+
+eslint-config-prettier
+eslint-plugin-prettier
+```
+
+### styled-components 
+- styled-components란
+   - React에서 style에 관한 Component를 만들기 위한 라이브러리
+   - style를 지정해 놓으면 자동으로 css 사용
+   - class name에 대한 오류가 없다
+   - 정적인 css가 아니라, props에 따라 동적으로 사용이 가능하다.
+   - styled에 대한 확장도 쉽게할 수 있다.
+```js
+// The Button from the last section without the interpolations
+const Button = styled.button`
+  color: palevioletred;
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid palevioletred;
+  border-radius: 3px;
+`;
+// A new component based on Button, but with some override styles
+const TomatoButton = styled(Button)`
+  color: tomato;
+  border-color: tomato;
+`;
+```

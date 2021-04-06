@@ -11,6 +11,8 @@ import DefaultApi from '../../../axios';
 
 const Qlist = ({history}) => {
 
+    console.log(history);
+    
     const [ stageList, setStageList] = useState();
     
     /**
