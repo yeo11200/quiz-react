@@ -7,12 +7,12 @@ import { useSelector } from 'react-redux';
 import Step from './step';
 import QuizList from './quiz.list';
 import { CardDeck } from 'react-bootstrap';
-import DefaultApi from '../../../axios';
+import DefaultApi from '../../../api/axios';
 
 const Qlist = ({history}) => {
 
     console.log(history);
-    
+
     const [ stageList, setStageList] = useState();
     
     /**

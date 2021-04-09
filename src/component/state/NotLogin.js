@@ -3,8 +3,6 @@ import { Join, Login } from '../content/Main';
 
 const NotLogin = (props) => {
   const nowPath = props.location.pathname;
-  console.log(nowPath);
-
   return(
     <>
       <div>Quiz-Js</div>

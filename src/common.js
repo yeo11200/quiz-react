@@ -1,16 +1,15 @@
-import axios from 'axios';
-
+import DefaultAPI from '../src/api/axios';
 export const memId = sessionStorage.getItem('MEMBER_ID');
 
 const URL = (window.location.hostname == 'localhost') ? 'https://api.jinseop-api.click' : '//api.jinseop-api.click';
 
-const user = `${URL}/member/`;
+const user = `member/`;
 export const quiz = `${URL}/quiz/`;
 export const member = user;
 
 export const login = (data, callback) => {
 
-    axios.post(`${user}login`, data).then(res => {
+    DefaultAPI.post(`${user}login`, data).then(res => {
         const items = res.data;
 
         if(items.status === 200){

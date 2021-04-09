@@ -1,11 +1,11 @@
-import react, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import axios from 'axios';
 import { quiz } from '../../../common';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeStage, changeAnswers, changeHint, loginHintCnt } from '../../../store/action/action';
 import Question from './state/question';
-import * as Fun from '../../../fun';
-import DefaultApi from '../../../axios';
+import DefaultApi from '../../../api/axios';
+import { QUIZ_VIEW } from '../../../api/api';
 
 const QuizList = ({ idx }) => {
 
@@ -30,6 +30,9 @@ const QuizList = ({ idx }) => {
  
     useEffect(() => {
 
+        const view = QUIZ_VIEW(stage);
+
+        console.log(view);
         // 스테이지 시작시 해당하는 데이터를 불러오지만, count와 undefined 여부 파악후 DB에 저장
         if(quizList === undefined || quizData?.data?.cnt <= 0){
             DefaultApi.get(`/quiz/${stage}`).then(res => {

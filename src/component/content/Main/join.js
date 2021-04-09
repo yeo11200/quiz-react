@@ -1,10 +1,9 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Button, FormControl, InputGroup } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { member, login } from '../../../common';
-import axios from 'axios';
 import { loginJoin } from '../../../store/action/action';
-import DefaultApi from '../../../axios';
+import DefaultApi from '../../../api/axios';
 
 
 const Join = ({ history }) => {
@@ -51,35 +50,35 @@ const Join = ({ history }) => {
 
     }, [pw, passfrom])
 
-    const checkValue = useCallback((data) => {
+    // const checkValue = useCallback((data) => {
 
-        if(data.name === 'nickname' || data.name === 'id'){
+    //     if(data.name === 'nickname' || data.name === 'id'){
 
-            const type = data.name === 'id' ? 'email' : data.name;
+    //         const type = data.name === 'id' ? 'email' : data.name;
 
-            DefaultApi.post('member/check', { type : type, value : data.value}).
-                then(res => {
+    //         DefaultApi.post('member/check', { type : type, value : data.value}).
+    //             then(res => {
 
-                    const items = res.data;
+    //                 const items = res.data;
 
-                    if(items.status === 200){
-                        if(type === 'email'){
-                            setIsValue({
-                                ...isValue,
-                                isIdValue : items.data.type
-                            })
-                        }else if(type === 'nickname'){
-                            setIsValue({
-                                ...isValue,
-                                isNickValue : items.data.type
-                            })
-                        }
-                    }else{
-                        alert('에러 발생 했어요.');
-                    }
-            });
-        }
-    })
+    //                 if(items.status === 200){
+    //                     if(type === 'email'){
+    //                         setIsValue({
+    //                             ...isValue,
+    //                             isIdValue : items.data.type
+    //                         })
+    //                     }else if(type === 'nickname'){
+    //                         setIsValue({
+    //                             ...isValue,
+    //                             isNickValue : items.data.type
+    //                         })
+    //                     }
+    //                 }else{
+    //                     alert('에러 발생 했어요.');
+    //                 }
+    //         });
+    //     }
+    // })
 
     const userJoin = useCallback(async () => {
         
