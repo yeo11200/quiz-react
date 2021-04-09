@@ -4,9 +4,6 @@ import { Main, Login, Join } from './Main/index'
 import ErrorPage from './Error/index'
 import { Qlist } from './Quiz/index';
 import MapTes from './Map/index';
-import react, { useState } from 'react'
-import useSWR, { mutate } from 'swr';
-import comm from '../../common';
 
 const Index = ({ match, history }) =>{
 

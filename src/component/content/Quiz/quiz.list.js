@@ -1,11 +1,10 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import axios from 'axios';
-import { quiz } from '../../../common';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeStage, changeAnswers, changeHint, loginHintCnt } from '../../../store/action/action';
 import Question from './state/question';
 import DefaultApi from '../../../api/axios';
-import { QUIZ_VIEW } from '../../../api/api';
+import { QUIZ_VIEW, quiz } from '../../../api/api';
 
 const QuizList = ({ idx }) => {
 

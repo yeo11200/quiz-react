@@ -1,8 +1,4 @@
 import { useEffect, useState } from 'react';
-
-import { quiz } from '../../../common';
-
-import axios from 'axios';
 import { useSelector } from 'react-redux';
 import Step from './step';
 import QuizList from './quiz.list';

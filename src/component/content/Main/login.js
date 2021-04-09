@@ -1,24 +1,18 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { login } from '../../../common';
+import { login } from '../../../assets/js/common';
 import { loginJoin } from "../../../store/action/action";
 import { Button } from 'react-bootstrap';
 
 const Login = ({ history }) => {
-
     const [ user, setUser ] = useState({
         'id' : '',
         'pw' : ''
     })
-
     const { id, pw } = user;
-
     const dispatch = useDispatch();
-
     const insertData = (e) => {
-
         let data = e.target;
-
         setUser({
             ...user,
             [data.name] : data.value
@@ -30,7 +24,6 @@ const Login = ({ history }) => {
     }
 
     const loginCallback = () => {
-
         if(id === ''){
             alert('아이디를 입력해주세요.');
             return;

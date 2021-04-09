@@ -8,6 +8,9 @@ const emptyYn = (params) => {
     return empty;
 }
 
+const loginInit = (storage) => {
+    
+}
 
 module.exports = {
     'emptyYn' : emptyYn
