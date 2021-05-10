@@ -1,14 +1,13 @@
-import react from 'react';
+import React from 'react';
 
-const footer = () => {
+const Footer = () => {
+  return (
+    <footer>
+      <div>
+        Copyright © Jinseop Inc. All Rights Reserved.
+      </div>
+    </footer> 
+  );
+};
 
-    return(
-        <footer>
-            <div>
-                Copyright © Jinseop Inc. All Rights Reserved.
-            </div>
-        </footer> 
-    )
-}
-
-export default footer;
+export default Footer;

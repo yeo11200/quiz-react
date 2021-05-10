@@ -4,7 +4,7 @@ Object.prototype.isEmpty = function(param) {
 
 function serializeObject(param) {
   const isEmpty = Object.isEmpty(param);
-  if (isEmpty == false) {
+  if (isEmpty === false) {
     return {};
   } else {
     return JSON.parse(param);
