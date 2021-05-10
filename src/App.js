@@ -6,39 +6,27 @@ import NotLogin from './component/state/NotLogin';
 import Login from './component/state/Login';
 
 function App(props) {
-
-	const { loginData } = useSelector(state => ({ loginData: state.loginRedux }));
-
-	// 함수가 선언될 경우 postMessage로 해당하는 메세지리를 보낸다
-	const sendPostMessageToRN = async message => {
-		var value = {
+  const { loginData } = useSelector(state => ({ loginData: state.loginRedux }));
+  // 함수가 선언될 경우 postMessage로 해당하는 메세지리를 보낸다.
+  const sendPostMessageToRN = async () => {
+		const value = {
 			type: 'OnClick',
 			state: 'web -> rn',
 		};
-
 		await (window['ReactNativeWebView'] || window).postMessage(JSON.stringify(value));
 	};
-
+	/**
+	* message 이벤트 RN에서 webView로 데이터를 넘길 때 사용하는 이벤트
+	* ios = window, android = document 차이가 있다.
+	*/
+  const isUIWebView = () => {
+	// 정규식을 통해서 os 버전을 확인한다.
+	return navigator.userAgent.toLowerCase().match(/\(ip.*applewebkit(?!.*(version|crios))/);
+};
 	useEffect(() => {
-
 		sendPostMessageToRN();
-
 		if (window['ReactNativeWebView'] || window) {
-			/**
-			 * message 이벤트 RN에서 webView로 데이터를 넘길 때 사용하는 이벤트
-			 *
-			 * ios = window, android = document 차이가 있다.
-			 */
-
-			const isUIWebView = () => {
-				/**
-				 * 정규식을 통해서 os 버전을 확인한다.
-				 */
-				return navigator.userAgent.toLowerCase().match(/\(ip.*applewebkit(?!.*(version|crios))/);
-			};
-
 			const receiver = isUIWebView() ? window : document;
-
 			/** android */
 			receiver.addEventListener('message', webLog);
 		} else {
